@@ -1,0 +1,10 @@
+package com.timetorevenue.openapi.repository.main.business.util
+
+interface EntityMapper <Entity, DomainModel>{
+
+    fun mapFromEntity(entity: Entity): DomainModel
+
+    fun mapToEntity(domainModel: DomainModel): Entity
+
+
+}
