@@ -229,11 +229,11 @@ constructor(
                     val updatedBlogPost = resultObj.toBlogPost()
 
                     blogPostDao.updateBlogPost(
-                        updatedBlogPost.pk.toString(),
+                        updatedBlogPost.pk,
                         updatedBlogPost.title,
                         updatedBlogPost.body,
-                        updatedBlogPost.image,
-                        updatedBlogPost.updated_at
+                        updatedBlogPost.image
+
                     )
 
                     return DataState.data(

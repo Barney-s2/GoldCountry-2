@@ -1,6 +1,7 @@
 package com.timetorevenue.openapi.api.main.responses
 
 import com.timetorevenue.openapi.models.BlogPost
+import com.timetorevenue.openapi.util.DateUtils
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
@@ -31,21 +32,13 @@ class BlogCreateUpdateResponse(
     @Expose
     var image: String,
 
+    @SerializedName("date_updated")
+    @Expose
+    var date_updated: String,
+
     @SerializedName("username")
     @Expose
-    var username: String,
-
-    @SerializedName("updated_at")
-    @Expose
-    var updated_at: String,
-
-    @SerializedName("created_at")
-    @Expose
-    var created_at: String
-
-
-
-
+    var username: String
 
 ){
     fun toBlogPost(): BlogPost {
@@ -55,14 +48,13 @@ class BlogCreateUpdateResponse(
             slug = slug,
             body = body,
             image = image,
-            username = username,
-            updated_at = updated_at,
-            created_at = created_at
+            date_updated = DateUtils.convertServerStringDateToLong(
+                    date_updated
+            ),
+            username = username
 
         )
     }
-
-
 }
 
 

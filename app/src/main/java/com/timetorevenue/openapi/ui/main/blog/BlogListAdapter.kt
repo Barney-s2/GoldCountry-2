@@ -28,12 +28,8 @@ class BlogListAdapter(
         "",
         "",
         "",
-        "",
-        "",
+        0,
         ""
-
-
-
 
     )
 
@@ -181,8 +177,7 @@ class BlogListAdapter(
                 .into(itemView.blog_image)
             itemView.blog_title.text = item.title
             itemView.blog_author.text = item.username
-            itemView.blog_update_date.text = DateUtils.convertLongToStringDate(item.updated_at)
-        }
+            itemView.blog_update_date.text = DateUtils.convertLongToStringDate(item.date_updated)        }
     }
 
     interface Interaction {

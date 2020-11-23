@@ -47,13 +47,13 @@ suspend fun BlogPostDao.returnOrderedBlogQuery(
         }
 
         filterAndOrder.contains(ORDER_BY_DESC_USERNAME) ->{
-            return searchBlogPostsOrderByTitleDESC(
+            return searchBlogPostsOrderByAuthorDESC(
                 query = query,
                 page = page)
         }
 
         filterAndOrder.contains(ORDER_BY_ASC_USERNAME) ->{
-            return searchBlogPostsOrderByTitleASC(
+            return searchBlogPostsOrderByAuthorASC(
                 query = query,
                 page = page)
         }

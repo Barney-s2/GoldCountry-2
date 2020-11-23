@@ -4,6 +4,8 @@ import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.google.gson.annotations.Expose
+import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
 /**
@@ -22,26 +24,24 @@ data class BlogPost(
     @ColumnInfo(name = "pK")
     var pk: Int,
 
-    //@ColumnInfo(name = "title")
+    @ColumnInfo(name = "title")
     var title: String,
 
-    //@ColumnInfo(name = "slug")
+    @ColumnInfo(name = "slug")
     var slug: String,
 
-    //@ColumnInfo(name = "body")
+    @ColumnInfo(name = "body")
     var body: String,
 
-    //@ColumnInfo(name = "image")
+    @ColumnInfo(name = "image")
     var image: String,
 
-    //@ColumnInfo(name = "date_updated")
-    var updated_at: String,
+    @ColumnInfo(name = "date_updated")
+    var date_updated: Long,
 
-    //@columnInfo(name = "created_at")
-    var created_at: String,
-
-    //@columnInfo(name = "username")
+    @ColumnInfo(name = "username")
     var username: String
+
 
 
 ) : Parcelable {
@@ -52,57 +52,10 @@ data class BlogPost(
                 "title='$title', " +
                 "slug='$slug', " +
                 "image='$image', " +
-                "date_updated=$updated_at, " +
-                "created_at:$created_at, " +
+                "date_updated=$date_updated, " +
                 "username='$username')"
     }
 
-
-
-
-
-
-    companion object{
-
-        val DATABASE_NAME: String = "blog_post"
-
-        fun nullTitleError(): String{
-            return "You must enter a title."
-        }
-
-        fun nullIdError(): String{
-            return "NoteEntity object has a null id. This should not be possible. Check local database."
-        }
-    }
-
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (javaClass != other?.javaClass) return false
-
-        other as BlogPost
-
-        if (pk != other.pk) return false
-        if (title != other.title) return false
-        if (slug != other.slug) return false
-        if (body != other.body) return false
-        if (image != other.image) return false
-        if (username !=other.username) return false
-        if (created_at != other.created_at) return false
-
-        return true
-    }
-
-    override fun hashCode(): Int {
-        var result = pk.hashCode()
-        result = 31 * result + title.hashCode()
-        result = 31 * result + slug.hashCode()
-        result = 31 * result + body.hashCode()
-        result = 31 * result + image.hashCode()
-        result = 31 * result + username.hashCode()
-        result = 31 * result + updated_at.hashCode()
-        result = 31 * result + created_at.hashCode()
-        return result
-    }
 }
 
 

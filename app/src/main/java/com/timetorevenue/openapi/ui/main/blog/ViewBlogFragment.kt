@@ -154,7 +154,7 @@ constructor(
             .into(blog_image)
         blog_title.setText(blogPost.title)
         blog_author.setText(blogPost.username)
-        blog_update_date.setText(DateUtils.convertLongToStringDate(blogPost.updated_at))
+        blog_update_date.setText(DateUtils.convertLongToStringDate(blogPost.date_updated))
         blog_body.setText(blogPost.body)
     }
 

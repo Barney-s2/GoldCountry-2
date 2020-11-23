@@ -80,11 +80,8 @@ fun BlogViewModel.getDummyBlogPost(): BlogPost{
         "",
         "",
         "",
-        "",
-        "",
+        1,
         ""
-
-
     )
 }
 

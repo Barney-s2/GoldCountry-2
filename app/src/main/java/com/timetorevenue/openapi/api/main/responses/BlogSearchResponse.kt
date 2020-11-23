@@ -31,10 +31,6 @@ class BlogSearchResponse(
     @Expose
     var date_updated: String,
 
-    @SerializedName("created_at")
-    @Expose
-    var created_at: String,
-
     @SerializedName("username")
     @Expose
     var username: String
@@ -48,8 +44,9 @@ class BlogSearchResponse(
             slug = slug,
             body = body,
             image = image,
-            updated_at = date_updated,
-            created_at = created_at,
+            date_updated = DateUtils.convertServerStringDateToLong(
+                    date_updated
+            ),
             username = username
         )
     }
@@ -59,7 +56,6 @@ class BlogSearchResponse(
                "title='$title', slug='$slug'," +
                 "image='$image'," +
                 "date_updated='$date_updated'," +
-                "created_at='$created_at'," +
                 "username='$username')"
     }
 }
