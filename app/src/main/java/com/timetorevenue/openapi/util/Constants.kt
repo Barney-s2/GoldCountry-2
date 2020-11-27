@@ -1,4 +1,5 @@
 package com.timetorevenue.openapi.util
+//
 
 class Constants {
 
@@ -20,7 +21,7 @@ class Constants {
         const val PERMISSIONS_REQUEST_READ_STORAGE: Int = 301
         const val CROP_IMAGE_INTENT_CODE: Int = 401
     }
-
+    //FROM package com.codingwithmitch.cleannotes.util
     object  Constants{
 
         const val TAG = "AppDebug" // Tag for logs
