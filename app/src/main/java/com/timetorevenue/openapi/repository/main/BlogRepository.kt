@@ -1,4 +1,5 @@
 package com.timetorevenue.openapi.repository.main
+//package com.codingwithmitch.cleannotes.business.data.cache.abstraction
 
 import com.timetorevenue.openapi.di.main.MainScope
 import com.timetorevenue.openapi.models.AuthToken
@@ -14,6 +15,7 @@ import okhttp3.RequestBody
 @FlowPreview
 @MainScope
 interface BlogRepository {
+
 
     fun searchBlogPosts(
         authToken: AuthToken,
