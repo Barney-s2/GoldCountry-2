@@ -1,8 +1,7 @@
 package com.timetorevenue.openapi.util
-
+//package com.codingwithmitch.cleannotes.util
 
 import android.util.Log
-
 import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.timetorevenue.openapi.util.Constants.Constants.DEBUG
 import com.timetorevenue.openapi.util.Constants.Constants.TAG
