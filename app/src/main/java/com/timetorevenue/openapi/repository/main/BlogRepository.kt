@@ -37,6 +37,12 @@ interface BlogRepository {
         stateEvent: StateEvent
     ): Flow<DataState<BlogViewState>>
 
+    fun deleteAllUsers(
+        authToken: AuthToken,
+        blogPost: BlogPost,
+        stateEvent: StateEvent
+    ): Flow<DataState<BlogViewState>>
+
     fun updateBlogPost(
         authToken: AuthToken,
         slug: String,

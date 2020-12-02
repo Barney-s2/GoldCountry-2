@@ -57,6 +57,12 @@ interface OpenApiMainService {
         @Path("slug") slug: String
     ): GenericResponse
 
+    @DELETE("blog/{slug}/delete")
+    suspend fun deleteAllUsers(
+        @Header("Authorization") authorization: String,
+        @Path("slug") slug: String
+    ): GenericResponse
+
     @Multipart
     @PUT("blog/{slug}/update")
     suspend fun updateBlog(

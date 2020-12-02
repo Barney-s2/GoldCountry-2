@@ -1,5 +1,5 @@
 package com.timetorevenue.openapi.repository.main
-//package com.codingwithmitch.cleannotes.business.data.cache.implementation
+
 
 import android.util.Log
 import com.timetorevenue.openapi.api.GenericResponse
@@ -180,6 +180,47 @@ constructor(
 
                     if(resultObj.response == SUCCESS_BLOG_DELETED){
                         blogPostDao.deleteBlogPost(blogPost)
+                        return DataState.data(
+                            response = Response(
+                                message = SUCCESS_BLOG_DELETED,
+                                uiComponentType = UIComponentType.Toast(),
+                                messageType = MessageType.Success()
+                            ),
+                            stateEvent = stateEvent
+                        )
+                    }
+                    else{
+                        return buildError(
+                            ERROR_UNKNOWN,
+                            UIComponentType.Dialog(),
+                            stateEvent
+                        )
+                    }
+                }
+            }.getResult()
+        )
+    }
+
+    override fun deleteAllUsers(
+        authToken: AuthToken,
+        blogPost: BlogPost,
+        stateEvent: StateEvent
+    ) =  flow {
+        val apiResult = safeApiCall(IO){
+            openApiMainService.deleteAllUsers(
+                "Token ${authToken.token!!}",
+                blogPost.slug
+            )
+        }
+        emit(
+            object: ApiResponseHandler<BlogViewState, GenericResponse>(
+                response = apiResult,
+                stateEvent = stateEvent
+            ){
+                override suspend fun handleSuccess(resultObj: GenericResponse): DataState<BlogViewState> {
+
+                    if(resultObj.response == SUCCESS_BLOG_DELETED){
+                        blogPostDao.deleteAllUsers()
                         return DataState.data(
                             response = Response(
                                 message = SUCCESS_BLOG_DELETED,
